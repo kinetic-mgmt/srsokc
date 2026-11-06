@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Superior 365 Memberships | Superior Roofing Specialists</title>
+<meta name="description" content="Superior 365 Memberships Roof peace of mind for less than a dollar a day.">
+<link rel="icon" href="/assets/img/srs-logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span>Oklahoma City, OK</span>
+  <span class="spacer"></span>
+  <span><a href="tel:+14056336566">(405) 633-6566</a></span>
+  <span><a href="mailto:mark@srsokc.com">mark@srsokc.com</a></span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a href="/"><img class="logo" src="/assets/img/srs-logo.svg" alt="Superior Roofing Specialists"></a>
+  <nav class="main" aria-label="Main">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/roofing">Roofing</a></li>
+        <li><a href="/storm-damage">Storm Damage</a></li>
+        <li><a href="/memberships" aria-current="page">Memberships</a></li>
+        <li><a href="/reviews">Reviews</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/request-estimate">Estimates</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="/request-estimate">Get Quote</a>
+</div></header>
+
+<main>
+<div class="pagehead"><div class="wrap">
+  <h1>Superior 365 Memberships</h1>
+  <p>Roof peace of mind for less than a dollar a day. Most homeowners do not know they have a leak until they see a spot on the ceiling. By then the damage is already done. Superior 365 keeps your home dry and your wallet happy. No long term contracts.</p>
+</div></div>
+
+<section><div class="wrap">
+  <div class="plans">
+
+    <div class="plan" data-plan="bronze">
+      <p class="name">Bronze</p>
+      <h3 style="margin:0 0 10px">Roof Monitoring</h3>
+      <p class="price">$19.95<span> / month</span></p>
+      <p class="year">or $199 a year</p>
+      <ul>
+        <li>Annual Roof Health Inspection</li>
+        <li>Digital photo report and Roof Health Score</li>
+        <li>Permanent Superior 365 Roof Record</li>
+        <li>Storm Watch and severe weather alerts</li>
+        <li>Insurance and warranty documentation</li>
+        <li>48 hour priority scheduling</li>
+        <li>5 percent Member Savings on repairs</li>
+      </ul>
+      <a class="btn" href="/request-estimate">Join Bronze</a>
+    </div>
+
+    <div class="plan featured" data-plan="silver">
+      <span class="tag">Most Popular</span>
+      <p class="name">Silver</p>
+      <h3 style="margin:0 0 10px">Preventive Roof Care</h3>
+      <p class="price">$39.95<span> / month</span></p>
+      <p class="year">or $399 a year</p>
+      <ul>
+        <li>Everything in Bronze</li>
+        <li>Spring and Fall Roof Health Visits</li>
+        <li>Preventive sealant and flashing maintenance</li>
+        <li>Pipe boot and penetration maintenance</li>
+        <li>One professional gutter cleaning annually</li>
+        <li>Priority post storm inspection</li>
+        <li>Updated photo report after each visit</li>
+        <li>10 percent Member Savings on repairs</li>
+      </ul>
+      <a class="btn" href="/request-estimate">Join Silver</a>
+    </div>
+
+    <div class="plan" data-plan="gold">
+      <p class="name">Gold</p>
+      <h3 style="margin:0 0 10px">Total Roof Protection</h3>
+      <p class="price">$49.95<span> / month</span></p>
+      <p class="year">or $499 a year</p>
+      <ul>
+        <li>Everything in Silver</li>
+        <li>Two professional gutter cleanings annually</li>
+        <li>Priority emergency roof response</li>
+        <li>Emergency tarping benefit</li>
+        <li>Attic moisture and ventilation inspection</li>
+        <li>Skylight, flashing and sheet metal inspection</li>
+        <li>Thermal and drone inspection when appropriate</li>
+        <li>Superior 365 Leak Protection Guarantee</li>
+        <li>Transferable membership</li>
+        <li>15 percent Member Savings on repairs</li>
+      </ul>
+      <a class="btn" href="/request-estimate">Join Gold</a>
+    </div>
+
+  </div>
+
+  <p style="margin-top:30px; font-size:14px; color:var(--muted); max-width:78ch">
+    The guarantee, storm response and tarping benefits are subject to eligibility, exclusions, service area availability and the Superior 365 membership terms.
+  </p>
+</div></section>
+
+<style>
+  .plan.chosen { outline:3px solid var(--accent, #c8203c); outline-offset:4px; }
+  .plan .chosen-note { display:none; }
+  .plan.chosen .chosen-note {
+    display:block; margin:0 0 10px; font-size:13px; font-weight:700;
+    letter-spacing:.04em; text-transform:uppercase; color:var(--accent, #c8203c);
+  }
+</style>
+<script id="srs-plan-pick">
+/* A member arriving from the Superior 365 app carries the plan they picked, how
+   they want to be billed, and their membership reference. Highlight that plan
+   and carry all three through to the estimate form, so the office knows which
+   app member is asking and for what. */
+(function () {
+  var q = new URLSearchParams(location.search);
+  var plan = (q.get('plan') || '').toLowerCase();
+  var billing = (q.get('billing') || '').toLowerCase();
+  var ref = q.get('ref') || '';
+  var cards = document.querySelectorAll('.plan[data-plan]');
+  if (!cards.length) return;
+
+  var valid = { bronze: 1, silver: 1, gold: 1 };
+  if (valid[plan]) {
+    for (var i = 0; i < cards.length; i++) {
+      if (cards[i].getAttribute('data-plan') !== plan) continue;
+      cards[i].classList.add('chosen');
+      var note = document.createElement('p');
+      note.className = 'chosen-note';
+      note.textContent = billing === 'annual' ? 'The plan you chose, billed yearly'
+                                              : 'The plan you chose';
+      cards[i].insertBefore(note, cards[i].firstElementChild);
+      if (cards[i].scrollIntoView) cards[i].scrollIntoView({ block: 'center' });
+    }
+  }
+
+  if (!plan && !ref) return;
+  for (var j = 0; j < cards.length; j++) {
+    var link = cards[j].querySelector('a.btn');
+    if (!link) continue;
+    var p = new URLSearchParams();
+    p.set('plan', cards[j].getAttribute('data-plan'));
+    if (billing) p.set('billing', billing);
+    if (ref) p.set('ref', ref);
+    link.setAttribute('href', '/request-estimate?' + p.toString());
+  }
+})();
+</script>
+
+<section class="tint"><div class="wrap">
+  <h2>Why Join?</h2>
+  <p class="lede">Most homeowners do not know they have a leak until they see a spot on the ceiling. By then, the damage is already done. This program keeps your home dry and your wallet happy. No long term contracts.</p>
+  <p style="margin-top:24px">
+    Call or text Mark at <a href="tel:+14056336566">(405) 633-6566</a> or email <a href="mailto:mark@srsokc.com">mark@srsokc.com</a>
+  </p>
+</div></section>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="cols">
+    <div>
+      <img class="logo" src="/assets/img/srs-logo-white.png" alt="Superior Roofing Specialists">
+      <p style="margin:0">Reliable, quick and responsive roofing in Oklahoma City. We do the job right the first time.</p>
+    </div>
+    <div>
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="tel:+14056336566">(405) 633-6566</a></li>
+        <li><a href="mailto:mark@srsokc.com">mark@srsokc.com</a></li>
+        <li style="padding-top:12px"><a class="btn" href="/request-estimate">Request Estimate</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Menu</h4>
+      <ul>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/storm-damage">Storm Damage</a></li>
+          <li><a href="/gaf-certified">GAF</a></li>
+          <li><a href="/gaf-shingles">GAF Shingles</a></li>
+          <li><a href="/gaf-warranties">Warranties</a></li>
+          <li><a href="/roof-danger-signs">Danger Signs</a></li>
+          <li><a href="/roofs-for-troops">Roofs For Troops</a></li>
+          <li><a href="/memberships">Memberships</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/request-estimate">Estimates</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Location</h4>
+      <p style="margin:0">11900 N MacArthur Blvd.<br>Building F suite f1<br>Oklahoma City, OK 73162</p>
+    </div>
+  </div>
+  <div class="legal">
+    <span>Copyright 2026 Superior Roofing Specialists</span>
+    <span>Registration OK 80008451</span>
+    <span class="spacer"></span>
+    <span><a href="/privacy">Privacy</a></span>
+  </div>
+</div></footer>
+
+</body>
+</html>

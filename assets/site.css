@@ -1,0 +1,125 @@
+:root{
+  --srs:#004c66; --srs-dark:#00374a; --srs-light:#e8f1f5;
+  --ink:#1b1f23; --muted:#5d666e; --line:#d9dee2; --soft:#f4f7f9;
+  --accent:#c8203c; --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  color:var(--ink); background:#fff; font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:var(--srs)}
+.wrap{max-width:var(--wrap); margin:0 auto; padding:0 22px}
+
+/* top contact bar */
+.topbar{background:var(--srs-dark); color:#cfe3ea; font-size:13.5px}
+.topbar .wrap{display:flex; flex-wrap:wrap; gap:8px 26px; align-items:center; padding:9px 22px}
+.topbar a{color:#fff; text-decoration:none; font-weight:600}
+.topbar .spacer{flex:1}
+
+/* header + nav */
+header.site{border-bottom:1px solid var(--line); background:#fff; position:sticky; top:0; z-index:40}
+header.site .wrap{display:flex; align-items:center; gap:20px; padding:14px 22px}
+header.site img.logo{height:54px; width:auto}
+nav.main{margin-left:auto}
+nav.main ul{display:flex; gap:3px; list-style:none; margin:0; padding:0; flex-wrap:wrap}
+nav.main a{
+  display:block; padding:10px 13px; text-decoration:none; color:var(--ink);
+  font-size:14.5px; font-weight:600; border-radius:6px;
+}
+nav.main a:hover{background:var(--soft); color:var(--srs)}
+nav.main a[aria-current="page"]{color:var(--srs); background:var(--srs-light)}
+.btn{
+  display:inline-block; background:var(--srs); color:#fff !important; text-decoration:none;
+  font-weight:700; font-size:14.5px; padding:12px 20px; border-radius:7px; letter-spacing:.01em;
+}
+.btn:hover{background:var(--srs-dark)}
+.btn.ghost{background:transparent; color:var(--srs) !important; border:2px solid var(--srs); padding:10px 18px}
+.btn.ghost:hover{background:var(--srs-light)}
+.nav-toggle{display:none}
+
+/* hero */
+.hero{background:var(--srs); color:#fff; padding:64px 0}
+.hero h1{font-size:clamp(30px,4.6vw,46px); line-height:1.12; margin:0 0 16px; letter-spacing:-.02em; font-weight:800}
+.hero p{font-size:17.5px; max-width:62ch; margin:0 0 26px; color:#dce9ef}
+.hero .cta{display:flex; gap:12px; flex-wrap:wrap}
+.hero .btn.ghost{color:#fff !important; border-color:#fff}
+.hero .btn.ghost:hover{background:rgba(255,255,255,.12)}
+.pagehead{background:var(--soft); border-bottom:1px solid var(--line); padding:38px 0 34px}
+.pagehead h1{font-size:clamp(26px,3.6vw,38px); margin:0 0 8px; letter-spacing:-.02em; font-weight:800}
+.pagehead p{margin:0; color:var(--muted); max-width:70ch; font-size:17px}
+
+/* sections */
+section{padding:56px 0}
+section.tint{background:var(--soft)}
+h2{font-size:clamp(23px,2.9vw,31px); margin:0 0 14px; letter-spacing:-.018em; font-weight:800}
+h3{font-size:19px; margin:0 0 8px; font-weight:700}
+.lede{font-size:17px; color:var(--muted); max-width:72ch}
+
+.grid{display:grid; gap:22px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:#fff; border:1px solid var(--line); border-radius:11px; padding:22px 22px 24px}
+.card.tinted{background:var(--soft)}
+.card h3{color:var(--srs)}
+.card p:last-child{margin-bottom:0}
+
+ul.ticks{list-style:none; margin:0; padding:0}
+ul.ticks li{position:relative; padding:7px 0 7px 32px; font-weight:600}
+ul.ticks li::before{
+  content:""; position:absolute; left:0; top:13px; width:18px; height:10px;
+  border-left:3px solid var(--srs); border-bottom:3px solid var(--srs); transform:rotate(-45deg);
+}
+.hero ul.ticks li::before{border-color:#fff}
+
+/* plans */
+.plans{display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); align-items:start}
+.plan{border:1px solid var(--line); border-radius:13px; padding:26px 24px 28px; background:#fff; position:relative}
+.plan.featured{border:2px solid var(--srs); box-shadow:0 8px 28px rgba(0,76,102,.11)}
+.plan .tag{
+  position:absolute; top:-13px; left:24px; background:var(--srs); color:#fff;
+  font-size:11.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; padding:5px 11px; border-radius:20px;
+}
+.plan .name{font-size:14px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 8px}
+.plan .price{font-size:40px; font-weight:800; letter-spacing:-.03em; line-height:1; margin:0}
+.plan .price span{font-size:15px; font-weight:600; color:var(--muted); letter-spacing:0}
+.plan .year{font-size:14px; color:var(--muted); margin:6px 0 18px}
+.plan ul{list-style:none; margin:0 0 22px; padding:0; font-size:15px}
+.plan ul li{padding:7px 0 7px 24px; position:relative; border-top:1px solid var(--line)}
+.plan ul li:first-child{border-top:0}
+.plan ul li::before{content:""; position:absolute; left:2px; top:14px; width:13px; height:7px; border-left:2.5px solid var(--srs); border-bottom:2.5px solid var(--srs); transform:rotate(-45deg)}
+
+/* footer */
+footer.site{background:var(--srs-dark); color:#b9d2db; padding:48px 0 26px; font-size:15px}
+footer.site .cols{display:grid; gap:34px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+footer.site h4{color:#fff; font-size:13px; letter-spacing:.1em; text-transform:uppercase; margin:0 0 14px; font-weight:700}
+footer.site a{color:#dcecf2; text-decoration:none}
+footer.site a:hover{color:#fff; text-decoration:underline}
+footer.site ul{list-style:none; margin:0; padding:0}
+footer.site ul li{padding:4px 0}
+footer.site img.logo{height:46px; width:auto; margin-bottom:16px}
+footer.site .legal{
+  border-top:1px solid rgba(255,255,255,.17); margin-top:34px; padding-top:18px;
+  display:flex; gap:10px 24px; flex-wrap:wrap; font-size:13.5px; color:#9ec0cc;
+}
+footer.site .legal .spacer{flex:1}
+
+@media (max-width:860px){
+  header.site{position:static}
+  header.site .wrap{flex-wrap:wrap; gap:10px; padding:12px 18px}
+  header.site img.logo{height:44px}
+  header.site > .wrap > .btn{margin-left:auto; padding:10px 16px; font-size:13.5px}
+  nav.main{margin-left:0; width:100%; order:3; border-top:1px solid var(--line); padding-top:8px}
+  nav.main ul{justify-content:flex-start; gap:2px}
+  nav.main a{padding:7px 10px; font-size:13.5px}
+  .topbar .wrap{gap:4px 16px; font-size:12.5px; padding:8px 18px}
+  .topbar .spacer{display:none}
+  .hero{padding:40px 0}
+  .hero h1{font-size:30px}
+  .hero p{font-size:16px}
+  section{padding:38px 0}
+  .wrap{padding:0 18px}
+}

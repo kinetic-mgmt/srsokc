@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request an Estimate | Superior Roofing Specialists</title>
+<meta name="description" content="Request an Estimate Fill out the form below and a member of the team will be in touch.">
+<link rel="icon" href="/assets/img/srs-logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span>Oklahoma City, OK</span>
+  <span class="spacer"></span>
+  <span><a href="tel:+14056336566">(405) 633-6566</a></span>
+  <span><a href="mailto:mark@srsokc.com">mark@srsokc.com</a></span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a href="/"><img class="logo" src="/assets/img/srs-logo.svg" alt="Superior Roofing Specialists"></a>
+  <nav class="main" aria-label="Main">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/roofing">Roofing</a></li>
+        <li><a href="/storm-damage">Storm Damage</a></li>
+        <li><a href="/memberships">Memberships</a></li>
+        <li><a href="/reviews">Reviews</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/request-estimate" aria-current="page">Estimates</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="/request-estimate">Get Quote</a>
+</div></header>
+
+<main>
+<div class="pagehead"><div class="wrap">
+  <h1>Request an Estimate</h1>
+  <p>Fill out the form below and a member of the team will be in touch. Fields marked with an asterisk are required.</p>
+</div></div>
+
+<section><div class="wrap">
+<style>
+:root{
+    --srs:#004c66; --srs-dark:#00374a; --ink:#1b1f23; --muted:#5d666e;
+    --line:#d9dee2; --bg:#ffffff; --soft:#f4f7f9; --bad:#a4132b; --good:#18794e;
+  }
+  *{box-sizing:border-box}
+  .srs-form{font-family:Montserrat,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); max-width:620px; margin:0 auto; padding:26px 24px 30px;
+    border:1px solid var(--line); border-radius:12px;}
+  .srs-form h2{font-size:24px; font-weight:700; margin:0 0 6px; letter-spacing:-.01em}
+  .srs-form .lede{color:var(--muted); font-size:15px; margin:0 0 22px; line-height:1.55}
+  .row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:14px}
+  .row > .f{flex:1 1 180px; min-width:0}
+  .f label{display:block; font-size:13px; font-weight:600; margin-bottom:6px}
+  .f .req{color:var(--bad)}
+  .f input, .f select, .f textarea{width:100%; font:inherit; font-size:15px; color:var(--ink);
+    padding:11px 13px; border:1px solid var(--line); border-radius:7px; background:#fff; -webkit-appearance:none}
+  .f textarea{min-height:92px; resize:vertical}
+  .f input:focus, .f select:focus, .f textarea:focus{outline:none; border-color:var(--srs);
+    box-shadow:0 0 0 3px rgba(0,76,102,.13)}
+  .f .err{color:var(--bad); font-size:12.5px; margin-top:5px; display:none}
+  .f.bad input, .f.bad select{border-color:var(--bad)}
+  .f.bad .err{display:block}
+  .consent{display:flex; gap:11px; align-items:flex-start; background:var(--soft);
+    border:1px solid var(--line); border-radius:8px; padding:13px 15px; margin:4px 0 18px}
+  .consent input{margin:2px 0 0; width:17px; height:17px; flex:0 0 auto; accent-color:var(--srs)}
+  .consent span{font-size:13px; line-height:1.55; color:var(--muted)}
+  button{width:100%; font:inherit; font-size:16px; font-weight:700; color:#fff; background:var(--srs);
+    border:0; border-radius:7px; padding:15px; cursor:pointer; letter-spacing:.01em}
+  button:hover{background:var(--srs-dark)}
+  button[disabled]{opacity:.6; cursor:default}
+  .note{font-size:12.5px; color:var(--muted); text-align:center; margin:13px 0 0; line-height:1.5}
+  .result{display:none; padding:20px; border-radius:9px; font-size:15.5px; line-height:1.6}
+  .result.ok{display:block; background:#eaf6f0; border:1px solid #bfe3d2; color:var(--good)}
+  .result.no{display:block; background:#fdeef0; border:1px solid #f3c8ce; color:var(--bad)}
+  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+  @media(max-width:520px){ .srs-form{padding:20px 16px 24px; border:0; border-radius:0} }
+</style>
+<form class="srs-form" id="srsEstimate" novalidate>
+  <h2>Request an estimate</h2>
+  <p class="lede">Tell us where the roof is and what is going on. We will call you back, usually the same day.</p>
+
+  <div id="srsResult" class="result" role="status" aria-live="polite"></div>
+
+  <div id="srsFields">
+    <div class="row">
+      <div class="f" data-for="name">
+        <label for="srs-name">Your name <span class="req">*</span></label>
+        <input id="srs-name" name="name" type="text" autocomplete="name" required>
+        <div class="err">Please tell us your name.</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="f" data-for="phone">
+        <label for="srs-phone">Phone <span class="req">*</span></label>
+        <input id="srs-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+        <div class="err">We need a number we can reach you on.</div>
+      </div>
+      <div class="f" data-for="email">
+        <label for="srs-email">Email <span class="req">*</span></label>
+        <input id="srs-email" name="email" type="email" autocomplete="email" required>
+        <div class="err">Please check the email address.</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="f" data-for="address">
+        <label for="srs-address">Street address <span class="req">*</span></label>
+        <input id="srs-address" name="address" type="text" autocomplete="street-address" required>
+        <div class="err">Please tell us where the roof is.</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="f" data-for="city">
+        <label for="srs-city">City <span class="req">*</span></label>
+        <input id="srs-city" name="city" type="text" autocomplete="address-level2" required>
+        <div class="err">Please add the city.</div>
+      </div>
+      <div class="f" data-for="zip">
+        <label for="srs-zip">Zip</label>
+        <input id="srs-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="f" data-for="service">
+        <label for="srs-service">What do you need <span class="req">*</span></label>
+        <select id="srs-service" name="service" required>
+          <option value="">Please choose</option>
+          <option>Water is coming in now</option>
+          <option>Storm or hail damage</option>
+          <option>Roof replacement</option>
+          <option>Roof repair</option>
+          <option>Free roof inspection</option>
+          <option>Insurance claim help</option>
+          <option>Gutters</option>
+          <option>Superior 365 membership</option>
+          <option>Something else</option>
+        </select>
+        <div class="err">Please choose one.</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="f">
+        <label for="srs-message">Anything else we should know</label>
+        <textarea id="srs-message" name="message" placeholder="Where the problem is, when it started, and anything we should bring."></textarea>
+      </div>
+    </div>
+
+    <label class="consent">
+      <input type="checkbox" name="sms_consent" value="yes" id="srs-consent">
+      <span>Yes, text me about my estimate and project from Superior Roofing Specialists. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See our Privacy Policy.</span>
+    </label>
+
+    <div class="hp" aria-hidden="true">
+      <label for="srs-company">Company</label>
+      <input id="srs-company" name="company" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <button type="submit" id="srsSend">Send my request</button>
+    <p class="note">We never sell or share your details. If water is coming in right now, please call us as well.</p>
+  </div>
+</form>
+
+<script>
+(function () {
+  // Point this at SRS's CRM. The key is SRS's own intake key, which only allows
+  // creating a lead, nothing else.
+  var ENDPOINT = "https://pvcdtjzmzesivhnrexss.supabase.co/functions/v1/crm-lead-intake";
+  var KEY = "09669ea1ec6a41adb27b6504e59597a8";
+
+  var form = document.getElementById("srsEstimate");
+  var fields = document.getElementById("srsFields");
+  var out = document.getElementById("srsResult");
+  var btn = document.getElementById("srsSend");
+  var opened = Date.now();
+
+  function mark(name, bad) {
+    var w = form.querySelector('[data-for="' + name + '"]');
+    if (w) w.classList.toggle("bad", !!bad);
+  }
+  function show(kind, html) { out.className = "result " + kind; out.innerHTML = html; }
+
+  // srs-plan-prefill: someone sent here from the memberships page already told
+  // us what they want, so do not make them choose it again.
+  (function () {
+    var pk = (new URLSearchParams(location.search).get("plan") || "").toLowerCase();
+    if (pk !== "bronze" && pk !== "silver" && pk !== "gold") return;
+    var sel = form.elements.service;
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].text === "Superior 365 membership") { sel.selectedIndex = i; break; }
+    }
+  })();
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var d = {};
+    ["name","phone","email","address","city","zip","service","message"].forEach(function (k) {
+      d[k] = (form.elements[k] && form.elements[k].value || "").trim();
+    });
+
+    var bad = false;
+    ["name","phone","email","address","city","service"].forEach(function (k) {
+      var empty = !d[k];
+      if (k === "email" && d.email && !/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(d.email)) empty = true;
+      if (k === "phone" && d.phone && d.phone.replace(/\D/g, "").length < 10) empty = true;
+      mark(k, empty); if (empty) bad = true;
+    });
+    if (bad) { show("no", "Please check the highlighted boxes and try again."); return; }
+
+    // Quietly drop bots: the hidden box is filled, or the form came back in under three seconds.
+    if (form.elements.company.value || Date.now() - opened < 3000) {
+      fields.style.display = "none";
+      show("ok", "<strong>Thank you.</strong> Your request is in and we will call you back shortly.");
+      return;
+    }
+
+    // Service Needed rides along in the message, so the office sees it first and
+    // the CRM can spot a leak and treat it as urgent.
+    d.message = d.service + (d.message ? ". " + d.message : "");
+    d.sms_consent = form.elements.sms_consent.checked ? "yes" : "no";
+    d.source = "web";
+    d.form = "request-estimate";
+    var q = new URLSearchParams(location.search);
+    ["utm_source","utm_medium","utm_campaign"].forEach(function (k) { if (q.get(k)) d[k] = q.get(k); });
+    // Arrived from the Superior 365 app or the memberships page with a plan chosen.
+    var pk = (q.get("plan") || "").toLowerCase(), bl = (q.get("billing") || "").toLowerCase(), rf = q.get("ref") || "";
+    if (pk === "bronze" || pk === "silver" || pk === "gold") {
+      d.message = "Wants Superior 365 " + pk.charAt(0).toUpperCase() + pk.slice(1)
+        + (bl === "annual" ? ", billed yearly" : bl === "monthly" ? ", billed monthly" : "")
+        + (rf ? " (app member reference " + rf + ")" : "")
+        + ". " + d.message;
+    }
+    delete d.service;
+
+    btn.disabled = true; btn.textContent = "Sending";
+    fetch(ENDPOINT + "?key=" + encodeURIComponent(KEY), {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d)
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok || !res.j.ok) throw new Error(res.j.error || "failed");
+        fields.style.display = "none";
+        show("ok", "<strong>Thank you.</strong> Your request is in and we will call you back shortly. If water is coming in right now, please call us on 405 633 6566 as well.");
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = "Send my request";
+        show("no", "Sorry, that did not go through. Please call us on 405 633 6566 and we will take the details over the phone.");
+      });
+  });
+})();
+</script>
+</div></section>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="cols">
+    <div>
+      <img class="logo" src="/assets/img/srs-logo-white.png" alt="Superior Roofing Specialists">
+      <p style="margin:0">Reliable, quick and responsive roofing in Oklahoma City. We do the job right the first time.</p>
+    </div>
+    <div>
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="tel:+14056336566">(405) 633-6566</a></li>
+        <li><a href="mailto:mark@srsokc.com">mark@srsokc.com</a></li>
+        <li style="padding-top:12px"><a class="btn" href="/request-estimate">Request Estimate</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Menu</h4>
+      <ul>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/storm-damage">Storm Damage</a></li>
+          <li><a href="/gaf-certified">GAF</a></li>
+          <li><a href="/gaf-shingles">GAF Shingles</a></li>
+          <li><a href="/gaf-warranties">Warranties</a></li>
+          <li><a href="/roof-danger-signs">Danger Signs</a></li>
+          <li><a href="/roofs-for-troops">Roofs For Troops</a></li>
+          <li><a href="/memberships">Memberships</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/request-estimate">Estimates</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Location</h4>
+      <p style="margin:0">11900 N MacArthur Blvd.<br>Building F suite f1<br>Oklahoma City, OK 73162</p>
+    </div>
+  </div>
+  <div class="legal">
+    <span>Copyright 2026 Superior Roofing Specialists</span>
+    <span>Registration OK 80008451</span>
+    <span class="spacer"></span>
+    <span><a href="/privacy">Privacy</a></span>
+  </div>
+</div></footer>
+
+</body>
+</html>

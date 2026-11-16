@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | Superior Roofing Specialists</title>
+<meta name="description" content="Page not found The page you are looking for cannot be found and may have been moved.">
+<link rel="icon" href="/assets/img/srs-logo.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span>Oklahoma City, OK</span>
+  <span class="spacer"></span>
+  <span><a href="tel:+14056336566">(405) 633-6566</a></span>
+  <span><a href="mailto:mark@srsokc.com">mark@srsokc.com</a></span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a href="/"><img class="logo" src="/assets/img/srs-logo.svg" alt="Superior Roofing Specialists"></a>
+  <nav class="main" aria-label="Main">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/roofing">Roofing</a></li>
+        <li><a href="/storm-damage">Storm Damage</a></li>
+        <li><a href="/memberships">Memberships</a></li>
+        <li><a href="/reviews">Reviews</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/request-estimate">Estimates</a></li>
+    </ul>
+  </nav>
+  <a class="btn" href="/request-estimate">Get Quote</a>
+</div></header>
+
+<main>
+<div class="pagehead"><div class="wrap">
+  <h1>Page not found</h1>
+  <p>The page you are looking for cannot be found and may have been moved.</p>
+</div></div>
+<section><div class="wrap">
+  <p><a class="btn" href="/">Back to the home page</a></p>
+</div></section>
+
+<script>
+// The old site used capitalised paths such as /Roofing and /Privacy. GitHub
+// Pages is case sensitive, so those arrive here. Send them to the real page
+// rather than showing a dead end. Any path that lowercases to a page we have
+// is a safe, same site redirect.
+(function () {
+  var pages = ["roofing","storm-damage","memberships","reviews","contact",
+               "request-estimate","gaf-certified","gaf-shingles",
+               "gaf-roofing-system","gaf-warranties","gaf-ventilation",
+               "roof-danger-signs","roofs-for-troops","insurance-links",
+               "privacy"];
+  var slug = location.pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
+  if (pages.indexOf(slug) !== -1 && slug !== location.pathname.replace(/^\/+|\/+$/g, "")) {
+    location.replace("/" + slug);
+  }
+})();
+</script>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="cols">
+    <div>
+      <img class="logo" src="/assets/img/srs-logo-white.png" alt="Superior Roofing Specialists">
+      <p style="margin:0">Reliable, quick and responsive roofing in Oklahoma City. We do the job right the first time.</p>
+    </div>
+    <div>
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="tel:+14056336566">(405) 633-6566</a></li>
+        <li><a href="mailto:mark@srsokc.com">mark@srsokc.com</a></li>
+        <li style="padding-top:12px"><a class="btn" href="/request-estimate">Request Estimate</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Menu</h4>
+      <ul>
+          <li><a href="/roofing">Roofing</a></li>
+          <li><a href="/storm-damage">Storm Damage</a></li>
+          <li><a href="/gaf-certified">GAF</a></li>
+          <li><a href="/gaf-shingles">GAF Shingles</a></li>
+          <li><a href="/gaf-warranties">Warranties</a></li>
+          <li><a href="/roof-danger-signs">Danger Signs</a></li>
+          <li><a href="/roofs-for-troops">Roofs For Troops</a></li>
+          <li><a href="/memberships">Memberships</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/request-estimate">Estimates</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Location</h4>
+      <p style="margin:0">11900 N MacArthur Blvd.<br>Building F suite f1<br>Oklahoma City, OK 73162</p>
+    </div>
+  </div>
+  <div class="legal">
+    <span>Copyright 2026 Superior Roofing Specialists</span>
+    <span>Registration OK 80008451</span>
+    <span class="spacer"></span>
+    <span><a href="/privacy">Privacy</a></span>
+  </div>
+</div></footer>
+
+</body>
+</html>
